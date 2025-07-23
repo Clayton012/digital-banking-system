@@ -1,0 +1,22 @@
+<div class="app-container">
+  <mat-toolbar color="primary" *ngIf="authService.isAuthenticated()">
+    <span>{{title}}</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/dashboard" *ngIf="!isManager()">
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </button>
+    <button mat-button routerLink="/admin" *ngIf="isManager()">
+      <mat-icon>admin_panel_settings</mat-icon>
+      Admin
+    </button>
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+  </mat-toolbar>
+  
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
